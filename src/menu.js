@@ -29,7 +29,7 @@ async function main(bot, uid, req, data) {
 
 async function searchMenu(bot, uid, req, data) {
     //process.env.CHANNEL_ID
-    const msg =  await bot.sendMessage(uid, lan.text.main[0], {
+    const msg =  await bot.sendMessage(uid, lan.text.main[1], {
         parse_mode: 'MarkDown',
         disable_web_page_preview: "true",
         reply_markup: JSON.stringify({
@@ -42,6 +42,7 @@ function tokenAnalyze(data)
 {
     var ret = {
         chain : data[0].chainId,
+        dex:data[0].dexId,
         token : data[0].baseToken,
         inform : data[0].info,
         price : {
@@ -123,7 +124,7 @@ async function search(bot, uid, req, data) {
     btn.push(
         [{
             "text": 'Buy',
-            "url": "https://tokenshare.tonspay.top/"
+            "url": "https://tokenshare.tonspay.top/?tgWebAppStartParam="+Buffer.from(JSON.stringify({t:1,d:az})).toString('hex')
         }]
     )
     }else{
