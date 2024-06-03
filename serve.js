@@ -3,6 +3,8 @@ require('dotenv').config()
 const token = process.env.TELEGRAMAPI;
 const bot = new TelegramBot(token, { polling: true });
 const src = require("./src/index")
+const proxy = require('./proxy')
+proxy.init()
 bot.on('message', async(msg) => {
     try {
         if (msg["reply_to_message"]) {
