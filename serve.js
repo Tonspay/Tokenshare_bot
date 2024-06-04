@@ -56,6 +56,9 @@ async function callBackRouter(data, action, opts) {
     const uid = data.chat.id;
     const req = src.pathRouter(action);
     switch (req.command) {
+        case "start":
+            await src.menu.main(bot, uid, req, data);
+            break;
         case "share":
             await src.menu.searchMenu(bot, uid, req, data);
             break;
