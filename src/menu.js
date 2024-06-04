@@ -150,6 +150,8 @@ async function search(bot, uid, req, data) {
         const az = geckoTokenAnalyze('ton', token.data);
         text += `
 🚀 Token : [$${az.token.name}](${az.explorer})🚀
+
+⛓ Chain : \`${az.chain}\`
         
 👛 Price : $${az.price.usd}
         
@@ -184,6 +186,8 @@ async function search(bot, uid, req, data) {
             // console.log(az)
         text += `
 🚀 Token : [$${az.token.symbol}](${az.explorer})🚀
+
+⛓ Chain : \`${az.chain}\`
 
 👛 Price : $${az.price.usd}
 
