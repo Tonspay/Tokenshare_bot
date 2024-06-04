@@ -114,7 +114,7 @@ function geckoTokenAnalyze(chain, data) {
             buys: 0,
             sells: 0,
         },
-        volume: 0,
+        volume: data.attributes.volume_usd.h24,
         liquidity: {
             total: data.attributes.volume_usd.h24,
             usd: data.attributes.volume_usd.h24,
@@ -149,13 +149,13 @@ async function search(bot, uid, req, data) {
         const token = await api.ton_geckoterminal_search(tk);
         const az = geckoTokenAnalyze('ton', token.data);
         text += `
-🚀 Token : [$${az.token.symbol}](${az.explorer})🚀
+🚀 Token : [$${az.token.name}](${az.explorer})🚀
         
 👛 Price : $${az.price.usd}
         
-💰 FDV : \`${az.fdv}\`
+💰 FDV : $\`${az.fdv}\`
         
-🚄 Vol 24H : \`${az.volume}\` 
+🚄 Vol 24H : $\`${az.volume}\` 
         
 🔥 Address : \`${az.token.address}\`
         
@@ -187,7 +187,7 @@ async function search(bot, uid, req, data) {
 
 👛 Price : $${az.price.usd}
 
-💰 Liqudity : \`${az.liquidity.total}\` | FDV : \`${az.fdv}\`
+💰 Liqudity : \`${az.liquidity.total}\` | FDV : $\`${az.fdv}\`
 
 🚄 TXNs 24H : \`${az.txns.total}\` (\`${az.txns.buys}\` / \`${az.txns.sells}\`)
 
