@@ -10,7 +10,7 @@ You can :
 
 1.Search token here
 
-2.Generate share text in [TokenshareChannel](https://t.me/tonstest)
+2.Generate share text in [TokenshareChannel](https://t.me/tokensharesbot)
 
 3.Add this bot to your group
 `,

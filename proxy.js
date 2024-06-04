@@ -42,6 +42,10 @@ app.get('/redirect/:path', async function(req, res) {
     res.redirect(Buffer.from(req.params.path,'hex').toString('utf-8'))
 })
 
+app.get('/proxy/:path', async function(req, res) {
+    res.redirect(Buffer.from(req.params.path,'hex').toString('utf-8'))
+})
+
 //INIT
 async function init() {
 
