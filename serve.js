@@ -11,7 +11,10 @@ bot.on('message', async(msg) => {
             // console.log(msg)
         } else {
             // console.log(msg)
-            await router(msg)
+            if(msg.chat.type =='private')
+            {
+                await router(msg)
+            }
         }
     } catch (e) {
         console.log(e);
@@ -38,6 +41,9 @@ bot.on('callback_query', async function onCallbackQuery(callbackQuery) {
 async function router(data) {
     const uid = data.chat.id;
     const req = src.pathRouter(data.text);
+    if(!req){
+        return 0 ;
+    }
     // console.log(req)
     switch (req.command) {
         case "start":
@@ -55,6 +61,9 @@ async function router(data) {
 async function callBackRouter(data, action, opts) {
     const uid = data.chat.id;
     const req = src.pathRouter(action);
+    if(!req){
+        return 0 ;
+    }
     switch (req.command) {
         case "start":
             await src.menu.main(bot, uid, req, data);

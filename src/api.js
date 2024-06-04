@@ -31,6 +31,7 @@ async function dexscreener_search(token) {
             'Content-Type': 'application/json'
         },
     };
+    // console.log(options)
     try {
         return doRequest(options);
     } catch (e) {
@@ -47,7 +48,7 @@ async function ton_geckoterminal_search(token) {
             'Content-Type': 'application/json'
         },
     };
-    console.log(options)
+    // console.log(options)
     try {
         return doRequest(options);
     } catch (e) {

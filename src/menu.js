@@ -181,6 +181,7 @@ async function search(bot, uid, req, data) {
 
     //Not the ton address
     const token = await api.dexscreener_search(req.params[0]);
+    // console.log(token)
     if (token && token.pairs && token.pairs.length > 0) {
         const az = tokenAnalyze(token.pairs)
             // console.log(az)
